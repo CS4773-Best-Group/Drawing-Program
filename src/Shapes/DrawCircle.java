@@ -10,7 +10,7 @@ public class DrawCircle implements DrawingStrategy {
     @Override
     public void draw() {
         System.out.printf("Circle, " +
-            "Color: %sOrigin: (%d,%d), Radius: %d%n",
+            "Color: %s, Origin: (%d,%d), Radius: %d%n",
             circle.color, circle.x, circle.y, circle.getRadius()
         );
     }
