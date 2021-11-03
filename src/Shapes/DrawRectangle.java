@@ -10,7 +10,7 @@ public class DrawRectangle implements DrawingStrategy {
     @Override
     public void draw() {
         System.out.printf("Rectangle, " +
-            "Color: %sOrigin: (%d,%d), Width: %d, Height :%d%n",
+            "Color: %s, Origin: (%d,%d), Width: %d, Height :%d%n",
             rectangle.getColor(), rectangle.getX(), rectangle.getY(),
             rectangle.getWidth(), rectangle.getHeight());
     }

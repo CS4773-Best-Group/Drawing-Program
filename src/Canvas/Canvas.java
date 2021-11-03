@@ -1,3 +1,8 @@
+package Canvas;
+
+import Commands.Command;
+import Commands.CreateCircleCommand;
+import Commands.CreateRectangleCommand;
 import Shapes.Circle;
 import Shapes.Rectangle;
 import Shapes.Shape;
@@ -36,15 +41,15 @@ public class Canvas {
             case "CREATE":
                 Shape newShape;
                 if (args[1].equals("RECTANGLE")) {
-                    newShape = new Rectangle(
-                        Integer.parseInt(args[2]),
-                        Integer.parseInt(args[3])
-                    );
+                    Command createRectangleCommand = new CreateRectangleCommand(
+                        this, Integer.parseInt(args[2]), Integer.parseInt(args[3]));
+                    createRectangleCommand.execute();
                 }
-                else {
-                    newShape = new Circle(Integer.parseInt(args[2]));
+                else { // create circle
+                    Command createCircleCommand = new CreateCircleCommand(
+                        this, Integer.parseInt(args[2]));
+                    createCircleCommand.execute();
                 }
-                shapes.add(newShape);
             case "SELECT":
                 break;
             case "MOVE":
@@ -63,4 +68,9 @@ public class Canvas {
                 throw new IllegalStateException("Unexpected value: " + command);
         }
     }
+
+    public void addShapeToCanvas(Shape shape) {
+        shapes.add(shape);
+    }
+
 }
