@@ -3,6 +3,7 @@ package Canvas;
 import Commands.Command;
 import Commands.CreateCircleCommand;
 import Commands.CreateRectangleCommand;
+import Handlers.*;
 import Shapes.Circle;
 import Shapes.Rectangle;
 import Shapes.Shape;
@@ -14,11 +15,18 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Canvas {
+    Handler firstHandler;
+
     List<Shape> shapes;
     int shapeSelected;
 
+    public Canvas() {
+        this.firstHandler = setUpHandlers();
+        this.shapes = new ArrayList<>();
+        this.shapeSelected = -1;
+    }
+
     public void startDrawing(File inputFile) {
-        shapes = new ArrayList<>();
         try {
             Scanner scanner = new Scanner(inputFile);
             while (scanner.hasNext()) {
@@ -36,14 +44,37 @@ public class Canvas {
 
     private void handleCommand(String line) {
         String[] command = line.toUpperCase().split(" ");
+        firstHandler.handleRequest(command);
+    }
 
-        // TODO: CREATE HANDLERS AND PASS COMMAND ARRAY INTO THE FIRST HANDLER
-
-
+    private Handler setUpHandlers() {
+        FinalHandler finalHandler = new FinalHandler(this);
+        UndoHandler undoHandler = new UndoHandler(finalHandler, this);
+        DrawsceneHandler drawsceneHandler = new DrawsceneHandler(undoHandler, this);
+        DeleteHandler deleteHandler = new DeleteHandler(drawsceneHandler, this);
+        ColorHandler colorHandler = new ColorHandler(deleteHandler, this);
+        DrawHandler drawHandler = new DrawHandler(colorHandler, this);
+        MoveHandler moveHandler = new MoveHandler(drawHandler, this);
+        SelectHandler selectHandler = new SelectHandler(moveHandler, this);
+        CreateCircleHandler createCircleHandler = new CreateCircleHandler(
+            selectHandler, this);
+        firstHandler = new CreateRectangleHandler(createCircleHandler, this);
+        return firstHandler;
     }
 
     public void addShapeToCanvas(Shape shape) {
         shapes.add(shape);
     }
 
+    public List<Shape> getShapes() {
+        return shapes;
+    }
+
+    public void setShapeSelected(int shapeSelected) {
+        this.shapeSelected = shapeSelected;
+    }
+
+    public int getShapeSelected() {
+        return shapeSelected;
+    }
 }
