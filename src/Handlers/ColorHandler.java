@@ -1,6 +1,7 @@
 package Handlers;
 
 import Canvas.Canvas;
+import Commands.ColorCommand;
 
 public class ColorHandler implements Handler {
     Handler nextHandler;
@@ -14,7 +15,8 @@ public class ColorHandler implements Handler {
     @Override
     public void handleRequest(String[] command) {
         if (command[0].equals("COLOR")) {
-            // TODO: EXECUTE COLOR COMMAND ON THE CURRENT SELECTED SHAPE
+            String color = command[1];
+            new ColorCommand(canvas, color).execute();
         } else {
             nextHandler.handleRequest(command);
         }

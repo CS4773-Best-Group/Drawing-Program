@@ -1,6 +1,7 @@
 package Handlers;
 
 import Canvas.Canvas;
+import Commands.DrawsceneCommand;
 
 public class DrawsceneHandler implements Handler {
     Handler nextHandler;
@@ -15,6 +16,7 @@ public class DrawsceneHandler implements Handler {
     public void handleRequest(String[] command) {
         if (command[0].equals("DRAWSCENE")) {
             // TODO: EXECUTE DRAWSCENE COMMAND USING LIST OF SHAPES
+            new DrawsceneCommand(canvas).execute();
         } else {
             nextHandler.handleRequest(command);
         }

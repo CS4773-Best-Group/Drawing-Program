@@ -1,6 +1,7 @@
 package Handlers;
 
 import Canvas.Canvas;
+import Commands.MoveCommand;
 
 public class MoveHandler implements Handler {
     Handler nextHandler;
@@ -14,7 +15,9 @@ public class MoveHandler implements Handler {
     @Override
     public void handleRequest(String[] command) {
         if (command[0].equals("MOVE")) {
-            // TODO: EXECUTE MOVE COMMAND ON THE CURRENT SELECTED SHAPE
+            int x = Integer.parseInt(command[1]);
+            int y = Integer.parseInt(command[2]);
+            new MoveCommand(canvas, x, y).execute();;
         } else {
             nextHandler.handleRequest(command);
         }

@@ -21,7 +21,7 @@ public class SelectCommand implements Command {
         if (selected > 0 && selected <= shapes.size()){
             canvas.setShapeSelected(selected);
         } else {
-            System.out.println("ERROR: invalid shape form SELECT");
+            System.out.println("ERROR: invalid shape for SELECT");
         }
     }
 }

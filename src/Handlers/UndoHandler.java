@@ -1,6 +1,7 @@
 package Handlers;
 
 import Canvas.Canvas;
+import Commands.UndoCommand;
 
 public class UndoHandler implements Handler {
     Handler nextHandler;
@@ -14,7 +15,7 @@ public class UndoHandler implements Handler {
     @Override
     public void handleRequest(String[] command) {
         if (command[0].equals("UNDO")) {
-            // TODO: EXECUTE UNDO COMMAND ON THE CURRENT SELECTED SHAPE
+            new UndoCommand(canvas).execute();
         } else {
             nextHandler.handleRequest(command);
         }
