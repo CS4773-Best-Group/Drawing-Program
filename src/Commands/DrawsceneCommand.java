@@ -18,5 +18,6 @@ public class DrawsceneCommand implements Command {
         for (Shape shape : shapes) {
             shape.draw();
         }
+        canvas.createMemento();
     }
 }
