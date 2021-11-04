@@ -36,10 +36,6 @@ public class Canvas {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-
-        for (Shape shape : shapes) {
-            shape.draw();
-        }
     }
 
     private void handleCommand(String line) {
