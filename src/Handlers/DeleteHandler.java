@@ -15,9 +15,7 @@ public class DeleteHandler implements Handler {
     @Override
     public void handleRequest(String[] command) {
         if (command[0].equals("DELETE")) {
-            // TODO: finish
-            int selected = Integer.parseInt(command[1]);
-            // new DeleteCommand(canvas, selected).execute();
+            new DeleteCommand(canvas).execute();
         } else {
             nextHandler.handleRequest(command);
         }

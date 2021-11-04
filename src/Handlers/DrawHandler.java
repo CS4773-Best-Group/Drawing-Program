@@ -1,6 +1,7 @@
 package Handlers;
 
 import Canvas.Canvas;
+import Commands.DrawCommand;
 
 public class DrawHandler implements Handler {
     Handler nextHandler;
@@ -14,7 +15,7 @@ public class DrawHandler implements Handler {
     @Override
     public void handleRequest(String[] command) {
         if (command[0].equals("DRAW")) {
-            // TODO: EXECUTE DRAW COMMAND ON THE CURRENT SELECTED SHAPE
+            new DrawCommand(canvas).execute();
         } else {
             nextHandler.handleRequest(command);
         }
