@@ -1,17 +1,28 @@
 package Commands;
 
+import Canvas.Canvas;
 import Shapes.Shape;
 
+import java.util.List;
+
 public class ColorCommand implements Command {
-    Shape shape;
+    Canvas canvas;
     String color;
 
-    public ColorCommand(Shape shape, String color) {
-        this.shape = shape;
+    public ColorCommand(Canvas canvas, String color) {
+        this.canvas = canvas;
+        this.color = color;
     }
 
     @Override
     public void execute() {
-        shape.color(color);
+        int selected = canvas.getShapeSelected();
+        List<Shape> shapes = canvas.getShapes();
+        if (selected > 0){
+            Shape selectedShape = shapes.get(selected + 1);
+            selectedShape.color(color);
+        } else {
+            System.out.println("no shape selected.");
+        }
     }
 }
