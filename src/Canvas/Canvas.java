@@ -27,6 +27,7 @@ public class Canvas {
         this.shapes = new ArrayList<>();
         this.shapeSelected = -1;
         this.careTaker = new CareTaker(this);
+        createMemento();
     }
 
     public void startDrawing(File inputFile) {
