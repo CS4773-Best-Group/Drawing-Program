@@ -9,7 +9,7 @@ public class Circle extends Shape {
         this.y = 0;
         this.color = "Blue";
 
-        drawingStrategy = new DrawCircle(this);
+        setDrawingStrategy(new DrawCircle(this));
     }
 
     public int getRadius() {

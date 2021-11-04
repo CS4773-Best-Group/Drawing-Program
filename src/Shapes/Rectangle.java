@@ -10,7 +10,7 @@ public class Rectangle extends Shape {
         this.y = 0;
         this.color = "Red";
 
-        drawingStrategy = new DrawRectangle(this);
+        setDrawingStrategy(new DrawRectangle(this));
     }
 
     public int getWidth() {
