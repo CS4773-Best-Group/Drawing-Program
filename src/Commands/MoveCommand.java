@@ -1,7 +1,6 @@
 package Commands;
 
-public class Select implements Command {
-
+public class MoveCommand implements Command {
     @Override
     public void execute() {
 

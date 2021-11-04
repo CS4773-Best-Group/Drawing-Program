@@ -15,14 +15,15 @@ import java.util.Scanner;
 
 public class Canvas {
     List<Shape> shapes;
+    int shapeSelected;
 
     public void startDrawing(File inputFile) {
-        shapes = new ArrayList<Shape>();
+        shapes = new ArrayList<>();
         try {
             Scanner scanner = new Scanner(inputFile);
             while (scanner.hasNext()) {
                 String line = scanner.nextLine();
-                processCommand(line);
+                handleCommand(line);
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -33,10 +34,11 @@ public class Canvas {
         }
     }
 
-    private void processCommand(String line) {
+    private void handleCommand(String line) {
         String[] command = line.toUpperCase().split(" ");
 
         // TODO: CREATE HANDLERS AND PASS COMMAND ARRAY INTO THE FIRST HANDLER
+
 
     }
 
