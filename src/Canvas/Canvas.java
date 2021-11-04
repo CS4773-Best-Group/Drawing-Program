@@ -15,14 +15,15 @@ import java.util.Scanner;
 
 public class Canvas {
     List<Shape> shapes;
+    int shapeSelected;
 
     public void startDrawing(File inputFile) {
-        shapes = new ArrayList<Shape>();
+        shapes = new ArrayList<>();
         try {
             Scanner scanner = new Scanner(inputFile);
             while (scanner.hasNext()) {
                 String line = scanner.nextLine();
-                processCommand(line);
+                handleCommand(line);
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -33,40 +34,12 @@ public class Canvas {
         }
     }
 
-    private void processCommand(String line) {
-        String[] args = line.toUpperCase().split(" ");
+    private void handleCommand(String line) {
+        String[] command = line.toUpperCase().split(" ");
 
-        String command = args[0];
-        switch (command) {
-            case "CREATE":
-                Shape newShape;
-                if (args[1].equals("RECTANGLE")) {
-                    Command createRectangleCommand = new CreateRectangleCommand(
-                        this, Integer.parseInt(args[2]), Integer.parseInt(args[3]));
-                    createRectangleCommand.execute();
-                }
-                else { // create circle
-                    Command createCircleCommand = new CreateCircleCommand(
-                        this, Integer.parseInt(args[2]));
-                    createCircleCommand.execute();
-                }
-            case "SELECT":
-                break;
-            case "MOVE":
-                break;
-            case "DRAW":
-                break;
-            case "COLOR":
-                break;
-            case "DELETE":
-                break;
-            case "DRAWSCENE":
-                break;
-            case "UNDO":
-                break;
-            default:
-                throw new IllegalStateException("Unexpected value: " + command);
-        }
+        // TODO: CREATE HANDLERS AND PASS COMMAND ARRAY INTO THE FIRST HANDLER
+
+
     }
 
     public void addShapeToCanvas(Shape shape) {
