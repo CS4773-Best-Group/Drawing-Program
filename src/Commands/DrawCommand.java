@@ -5,13 +5,11 @@ import Shapes.Shape;
 
 import java.util.List;
 
-public class ColorCommand implements Command {
+public class DrawCommand implements Command {
     Canvas canvas;
-    String color;
 
-    public ColorCommand(Canvas canvas, String color) {
+    public DrawCommand(Canvas canvas) {
         this.canvas = canvas;
-        this.color = color;
     }
 
     @Override
@@ -20,7 +18,7 @@ public class ColorCommand implements Command {
         List<Shape> shapes = canvas.getShapes();
         if (selected > 0){
             Shape selectedShape = shapes.get(selected - 1);
-            selectedShape.color(color);
+            selectedShape.draw();
         } else {
             System.out.println("no shape selected.");
         }
