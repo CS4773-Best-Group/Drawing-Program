@@ -17,7 +17,7 @@ public class DrawCommand implements Command {
         int selected = canvas.getShapeSelected();
         List<Shape> shapes = canvas.getShapes();
         if (selected > 0){
-            Shape selectedShape = shapes.get(selected + 1);
+            Shape selectedShape = shapes.get(selected - 1);
             selectedShape.draw();
         } else {
             System.out.println("no shape selected.");

@@ -7,7 +7,7 @@ public abstract class Shape {
     int x;
     int y;
 
-    void move(int x, int y) {
+    public void move(int x, int y) {
         this.x = x;
         this.y = y;
     }
