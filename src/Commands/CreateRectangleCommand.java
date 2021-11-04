@@ -17,5 +17,6 @@ public class CreateRectangleCommand implements Command {
     public void execute() {
         Rectangle rectangle = new Rectangle(width, height);
         canvas.addShapeToCanvas(rectangle);
+        canvas.createMemento();
     }
 }

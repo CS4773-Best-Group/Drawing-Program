@@ -16,5 +16,6 @@ public class CreateCircleCommand implements Command {
     public void execute() {
         Circle circle = new Circle(radius);
         canvas.addShapeToCanvas(circle);
+        canvas.createMemento();
     }
 }

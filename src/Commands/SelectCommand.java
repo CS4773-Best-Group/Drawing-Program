@@ -20,6 +20,7 @@ public class SelectCommand implements Command {
         List<Shape> shapes = canvas.getShapes();
         if (selected > 0 && selected <= shapes.size()){
             canvas.setShapeSelected(selected);
+            canvas.createMemento();
         } else {
             System.out.println("ERROR: invalid shape for SELECT");
         }

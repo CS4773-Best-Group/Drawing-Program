@@ -21,6 +21,7 @@ public class ColorCommand implements Command {
         if (selected > 0){
             Shape selectedShape = shapes.get(selected - 1);
             selectedShape.color(color);
+            canvas.createMemento();
         } else {
             System.out.println("no shape selected.");
         }
