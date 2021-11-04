@@ -1,6 +1,7 @@
 package Handlers;
 
 import Canvas.Canvas;
+import Commands.SelectCommand;
 
 public class SelectHandler implements Handler {
     Handler nextHandler;
@@ -14,7 +15,8 @@ public class SelectHandler implements Handler {
     @Override
     public void handleRequest(String[] command) {
         if (command[0].equals("SELECT")) {
-            // TODO: EXECUTE SELECT COMMAND
+            int selected = Integer.parseInt(command[1]);
+            new SelectCommand(canvas, selected).execute();
         } else {
             nextHandler.handleRequest(command);
         }

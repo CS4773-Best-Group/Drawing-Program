@@ -1,6 +1,7 @@
 package Handlers;
 
 import Canvas.Canvas;
+import Commands.DeleteCommand;
 
 public class DeleteHandler implements Handler {
     Handler nextHandler;
@@ -14,7 +15,9 @@ public class DeleteHandler implements Handler {
     @Override
     public void handleRequest(String[] command) {
         if (command[0].equals("DELETE")) {
-            // TODO: EXECUTE DELETE COMMAND ON THE CURRENT SELECTED SHAPE
+            // TODO: finish
+            int selected = Integer.parseInt(command[1]);
+            // new DeleteCommand(canvas, selected).execute();
         } else {
             nextHandler.handleRequest(command);
         }
