@@ -9,7 +9,7 @@ public class CreateRectangleHandler implements Handler {
     Handler nextHandler;
     Canvas canvas;
 
-    public CreateRectangleHandler(Canvas canvas, Handler nextHandler) {
+    public CreateRectangleHandler(Handler nextHandler, Canvas canvas) {
         this.canvas = canvas;
         this.nextHandler = nextHandler;
     }
