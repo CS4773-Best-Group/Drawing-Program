@@ -4,6 +4,7 @@ import Commands.Command;
 import Commands.CreateCircleCommand;
 import Commands.CreateRectangleCommand;
 import Handlers.*;
+import Memento.CareTaker;
 import Shapes.Circle;
 import Shapes.Rectangle;
 import Shapes.Shape;
@@ -16,6 +17,7 @@ import java.util.Scanner;
 
 public class Canvas {
     Handler firstHandler;
+    CareTaker careTaker;
 
     List<Shape> shapes;
     int shapeSelected;
@@ -24,6 +26,7 @@ public class Canvas {
         this.firstHandler = setUpHandlers();
         this.shapes = new ArrayList<>();
         this.shapeSelected = -1;
+        this.careTaker = new CareTaker(this);
     }
 
     public void startDrawing(File inputFile) {
@@ -41,6 +44,14 @@ public class Canvas {
     private void handleCommand(String line) {
         String[] command = line.toUpperCase().split(" ");
         firstHandler.handleRequest(command);
+    }
+
+    public void createMemento() {
+        // TODO: create a new memento and use careTaker to save it to list of mementos
+    }
+
+    public void restoreMemento() {
+        // TODO: use caretaker to load memento and restore shapes and selected to match the memento
     }
 
     private Handler setUpHandlers() {
