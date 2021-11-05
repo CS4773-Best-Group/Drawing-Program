@@ -17,12 +17,15 @@ public class CareTaker {
     public void saveMemento(Memento memento) {
         // TODO: add the newly created memento to the mementoList
         if (memento != null) {
-            memento.getShapeSelected();
+            mementoList.add(memento);
         }
     }
 
     public Memento loadMemento() {
         // TODO: remove and return the most previous memento from the list
-        return null;
+        int index = mementoList.size() - 1;
+        mementoList.remove(index);
+        Memento memento = mementoList.get(mementoList.size() - 1);
+        return memento;
     }
 }
