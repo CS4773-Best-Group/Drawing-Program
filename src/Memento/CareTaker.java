@@ -16,6 +16,9 @@ public class CareTaker {
 
     public void saveMemento(Memento memento) {
         // TODO: add the newly created memento to the mementoList
+        if (memento != null) {
+            memento.getShapeSelected();
+        }
     }
 
     public Memento loadMemento() {
