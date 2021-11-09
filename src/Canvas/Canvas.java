@@ -68,8 +68,7 @@ public class Canvas {
         DrawHandler drawHandler = new DrawHandler(colorHandler, this);
         MoveHandler moveHandler = new MoveHandler(drawHandler, this);
         SelectHandler selectHandler = new SelectHandler(moveHandler, this);
-        CreateCircleHandler createCircleHandler = new CreateCircleHandler(
-            selectHandler, this);
+        CreateCircleHandler createCircleHandler = new CreateCircleHandler(selectHandler, this);
         firstHandler = new CreateRectangleHandler(createCircleHandler, this);
         return firstHandler;
     }

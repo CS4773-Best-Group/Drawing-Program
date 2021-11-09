@@ -20,4 +20,9 @@ public class DrawsceneCommand implements Command {
         }
         canvas.createMemento();
     }
+
+    @Override
+    public void undo() {
+
+    }
 }

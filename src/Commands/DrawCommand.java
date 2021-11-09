@@ -24,4 +24,9 @@ public class DrawCommand implements Command {
             System.out.println("no shape selected.");
         }
     }
+
+    @Override
+    public void undo() {
+
+    }
 }

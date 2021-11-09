@@ -6,6 +6,7 @@ import Shapes.Rectangle;
 public class CreateRectangleCommand implements Command {
     Canvas canvas;
     int width, height;
+    int prevWidth, prevHeight;
 
     public CreateRectangleCommand(Canvas canvas, int width, int height) {
         this.canvas = canvas;
@@ -16,7 +17,17 @@ public class CreateRectangleCommand implements Command {
     @Override
     public void execute() {
         Rectangle rectangle = new Rectangle(width, height);
+        prevWidth = rectangle.getHeight();
+        prevHeight = rectangle.getWidth();
         canvas.addShapeToCanvas(rectangle);
         canvas.createMemento();
+    }
+
+    @Override
+    public void undo() {
+        Rectangle rectangle = new Rectangle(prevWidth, prevHeight);
+        canvas.addShapeToCanvas(rectangle);
+        canvas.createMemento();
+
     }
 }

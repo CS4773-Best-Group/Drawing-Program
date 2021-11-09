@@ -17,6 +17,7 @@ public class ColorHandler implements Handler {
         if (command[0].equals("COLOR")) {
             String color = command[1];
             new ColorCommand(canvas, color).execute();
+            //canvas.createMemento();
         } else {
             nextHandler.handleRequest(command);
         }
