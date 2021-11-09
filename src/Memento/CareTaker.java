@@ -26,6 +26,7 @@ public class CareTaker {
         int index = mementoList.size() - 1;
         mementoList.remove(index);
         Memento memento = mementoList.get(mementoList.size() - 1);
+        //System.out.println(memento.toString());
         return memento;
     }
 }
