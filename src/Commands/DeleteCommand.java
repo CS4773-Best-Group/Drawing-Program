@@ -19,7 +19,6 @@ public class DeleteCommand implements Command {
         if (selected > 0){
             Shape selectedShape = shapes.get(selected - 1);
             shapes.remove(selectedShape);
-            canvas.createMemento();
         } else {
             System.out.println("no shape selected.");
         }

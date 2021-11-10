@@ -18,13 +18,11 @@ public class CreateCircleCommand implements Command {
         Circle circle = new Circle(radius);
         prevRadius = circle.getRadius();
         canvas.addShapeToCanvas(circle);
-        canvas.createMemento();
     }
 
     @Override
     public void undo() {
         Circle circle = new Circle(prevRadius);
         canvas.addShapeToCanvas(circle);
-        canvas.createMemento();
     }
 }

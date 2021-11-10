@@ -1,31 +1,28 @@
 package Memento;
 
+import Commands.Command;
 import Shapes.Shape;
 
 import java.util.List;
 
 public class Memento {
+    Command command;
     List<Shape> shapes;
     int shapeSelected;
 
-    @Override
-    public String toString() {
-        return "Memento{" +
-                "shapes=" + shapes +
-                ", shapeSelected=" + shapeSelected +
-                '}';
+    public Memento(Command command) {
+        this.command = command;
     }
 
-    public Memento(List<Shape> shapes, int shapeSelected) {
-        this.shapes = shapes;
-        this.shapeSelected = shapeSelected;
+    public Command getCommand() {
+        return command;
     }
 
-    public List<Shape> getShapes() {
-        return shapes;
-    }
+    //    public List<Shape> getShapes() {
+//        return shapes;
+//    }
 
-    public int getShapeSelected() {
-        return shapeSelected;
-    }
+//    public int getShapeSelected() {
+//        return shapeSelected;
+//    }
 }

@@ -28,7 +28,6 @@ public class MoveCommand implements Command {
             prevX = selectedShape.getX();
             prevY = selectedShape.getY();
             selectedShape.move(x, y);
-            canvas.createMemento();
         } else {
             System.out.println("no shape selected.");
         }
@@ -41,7 +40,6 @@ public class MoveCommand implements Command {
         if (selected > 0){
             Shape selectedShape = shapes.get(selected - 1);
             selectedShape.move(prevX, prevY);
-            canvas.createMemento();
         } else {
             System.out.println("no shape selected.");
         }

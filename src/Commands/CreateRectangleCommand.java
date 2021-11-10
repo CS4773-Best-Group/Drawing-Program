@@ -20,14 +20,11 @@ public class CreateRectangleCommand implements Command {
         prevWidth = rectangle.getHeight();
         prevHeight = rectangle.getWidth();
         canvas.addShapeToCanvas(rectangle);
-        canvas.createMemento();
     }
 
     @Override
     public void undo() {
         Rectangle rectangle = new Rectangle(prevWidth, prevHeight);
         canvas.addShapeToCanvas(rectangle);
-        canvas.createMemento();
-
     }
 }

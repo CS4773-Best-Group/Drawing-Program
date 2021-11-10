@@ -28,7 +28,7 @@ public class Canvas {
         this.shapes = new ArrayList<>();
         this.shapeSelected = -1;
         this.careTaker = new CareTaker(this);
-        createMemento();
+//        createMemento();
     }
 
     public void startDrawing(File inputFile) {
@@ -48,16 +48,16 @@ public class Canvas {
         firstHandler.handleRequest(command);
     }
 
-    public void createMemento() {
-        // TODO: create a new memento and use careTaker to save it to list of mementos
-        Memento memento = new Memento(shapes, shapeSelected);
-        careTaker.saveMemento(memento);
-    }
-
-    public void restoreMemento() {
-        // TODO: use caretaker to load memento and restore shapes and selected to match the memento
-        careTaker.loadMemento();
-    }
+//    public void createMemento() {
+//        // TODO: create a new memento and use careTaker to save it to list of mementos
+//        Memento memento = new Memento(shapes, shapeSelected);
+//        careTaker.saveMemento(memento);
+//    }
+//
+//    public void restoreMemento() {
+//        // TODO: use caretaker to load memento and restore shapes and selected to match the memento
+//        careTaker.loadMemento();
+//    }
 
     private Handler setUpHandlers() {
         FinalHandler finalHandler = new FinalHandler(this);
