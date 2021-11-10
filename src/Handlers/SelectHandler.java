@@ -1,7 +1,10 @@
 package Handlers;
 
 import Canvas.Canvas;
+import Commands.Command;
 import Commands.SelectCommand;
+import Memento.CareTaker;
+import Memento.Memento;
 
 public class SelectHandler implements Handler {
     Handler nextHandler;
@@ -16,7 +19,9 @@ public class SelectHandler implements Handler {
     public void handleRequest(String[] command) {
         if (command[0].equals("SELECT")) {
             int selected = Integer.parseInt(command[1]);
-            new SelectCommand(canvas, selected).execute();
+            Command selectCommand = new SelectCommand(canvas, selected);
+            selectCommand.execute();
+            CareTaker.saveMemento(new Memento(selectCommand));
         } else {
             nextHandler.handleRequest(command);
         }

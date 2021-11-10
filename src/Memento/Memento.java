@@ -1,23 +1,28 @@
 package Memento;
 
+import Commands.Command;
 import Shapes.Shape;
 
 import java.util.List;
 
 public class Memento {
+    Command command;
     List<Shape> shapes;
     int shapeSelected;
 
-    public Memento(List<Shape> shapes, int shapeSelected) {
-        this.shapes = shapes;
-        this.shapeSelected = shapeSelected;
+    public Memento(Command command) {
+        this.command = command;
     }
 
-    public List<Shape> getShapes() {
-        return shapes;
+    public Command getCommand() {
+        return command;
     }
 
-    public int getShapeSelected() {
-        return shapeSelected;
-    }
+    //    public List<Shape> getShapes() {
+//        return shapes;
+//    }
+
+//    public int getShapeSelected() {
+//        return shapeSelected;
+//    }
 }

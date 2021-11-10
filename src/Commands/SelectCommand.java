@@ -8,6 +8,7 @@ import java.util.List;
 public class SelectCommand implements Command {
     Canvas canvas;
     int selected;
+    int prevSelected;
 
     public SelectCommand(Canvas canvas, int selected) {
         this.canvas = canvas;
@@ -23,5 +24,17 @@ public class SelectCommand implements Command {
         } else {
             System.out.println("ERROR: invalid shape for SELECT");
         }
+    }
+
+    @Override
+    public void undo() {
+        canvas.setShapeSelected(prevSelected);
+        List<Shape> shapes = canvas.getShapes();
+        if (prevSelected > 0 && prevSelected <= shapes.size()){
+            canvas.setShapeSelected(prevSelected);
+        } else {
+            System.out.println("ERROR: invalid shape for SELECT");
+        }
+
     }
 }

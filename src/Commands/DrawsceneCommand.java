@@ -19,4 +19,9 @@ public class DrawsceneCommand implements Command {
             shape.draw();
         }
     }
+
+    @Override
+    public void undo() {
+
+    }
 }

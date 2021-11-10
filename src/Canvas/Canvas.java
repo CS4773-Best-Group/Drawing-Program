@@ -5,6 +5,7 @@ import Commands.CreateCircleCommand;
 import Commands.CreateRectangleCommand;
 import Handlers.*;
 import Memento.CareTaker;
+import Memento.Memento;
 import Shapes.Circle;
 import Shapes.Rectangle;
 import Shapes.Shape;
@@ -27,6 +28,7 @@ public class Canvas {
         this.shapes = new ArrayList<>();
         this.shapeSelected = -1;
         this.careTaker = new CareTaker(this);
+//        createMemento();
     }
 
     public void startDrawing(File inputFile) {
@@ -46,14 +48,6 @@ public class Canvas {
         firstHandler.handleRequest(command);
     }
 
-    public void createMemento() {
-        // TODO: create a new memento and use careTaker to save it to list of mementos
-    }
-
-    public void restoreMemento() {
-        // TODO: use caretaker to load memento and restore shapes and selected to match the memento
-    }
-
     private Handler setUpHandlers() {
         FinalHandler finalHandler = new FinalHandler(this);
         UndoHandler undoHandler = new UndoHandler(finalHandler, this);
@@ -63,14 +57,17 @@ public class Canvas {
         DrawHandler drawHandler = new DrawHandler(colorHandler, this);
         MoveHandler moveHandler = new MoveHandler(drawHandler, this);
         SelectHandler selectHandler = new SelectHandler(moveHandler, this);
-        CreateCircleHandler createCircleHandler = new CreateCircleHandler(
-            selectHandler, this);
+        CreateCircleHandler createCircleHandler = new CreateCircleHandler(selectHandler, this);
         firstHandler = new CreateRectangleHandler(createCircleHandler, this);
         return firstHandler;
     }
 
     public void addShapeToCanvas(Shape shape) {
         shapes.add(shape);
+    }
+
+    public void removeShapeFromCanvas() {
+        shapes.remove(shapes.size()-1);
     }
 
     public List<Shape> getShapes() {

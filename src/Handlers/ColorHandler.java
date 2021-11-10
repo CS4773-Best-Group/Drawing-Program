@@ -2,6 +2,9 @@ package Handlers;
 
 import Canvas.Canvas;
 import Commands.ColorCommand;
+import Commands.Command;
+import Memento.CareTaker;
+import Memento.Memento;
 
 public class ColorHandler implements Handler {
     Handler nextHandler;
@@ -16,7 +19,9 @@ public class ColorHandler implements Handler {
     public void handleRequest(String[] command) {
         if (command[0].equals("COLOR")) {
             String color = command[1];
-            new ColorCommand(canvas, color).execute();
+            Command colorCommand = new ColorCommand(canvas, color);
+            colorCommand.execute();
+            CareTaker.saveMemento(new Memento(colorCommand));
         } else {
             nextHandler.handleRequest(command);
         }

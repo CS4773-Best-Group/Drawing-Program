@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CareTaker {
-    List<Memento> mementoList;
+    static List<Memento> mementoList;
     Canvas canvas;
 
     public CareTaker(Canvas canvas) {
@@ -14,12 +14,20 @@ public class CareTaker {
         mementoList = new ArrayList<Memento>();
     }
 
-    public void saveMemento(Memento memento) {
+    public static void saveMemento(Memento memento) {
         // TODO: add the newly created memento to the mementoList
+        if (memento != null) {
+            mementoList.add(memento);
+        }
     }
 
-    public Memento loadMemento() {
+    public static Memento loadMemento() {
         // TODO: remove and return the most previous memento from the list
-        return null;
+        // remove 0 element
+        int index = mementoList.size() - 1;
+        Memento memento = mementoList.get(index);
+        mementoList.remove(index);
+        //System.out.println(memento.toString());
+        return memento;
     }
 }
