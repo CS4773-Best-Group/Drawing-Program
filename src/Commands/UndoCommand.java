@@ -11,7 +11,6 @@ public class UndoCommand implements Command {
 
     @Override
     public void execute() {
-//        canvas.restoreMemento();
     }
 
     @Override

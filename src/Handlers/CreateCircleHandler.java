@@ -1,10 +1,8 @@
 package Handlers;
 
 import Canvas.Canvas;
-import Commands.ColorCommand;
 import Commands.Command;
 import Commands.CreateCircleCommand;
-import Commands.CreateRectangleCommand;
 import Memento.CareTaker;
 import Memento.Memento;
 

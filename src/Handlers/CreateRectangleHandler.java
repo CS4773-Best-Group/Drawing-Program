@@ -5,7 +5,6 @@ import Commands.Command;
 import Commands.CreateRectangleCommand;
 import Memento.CareTaker;
 import Memento.Memento;
-import Shapes.Shape;
 
 public class CreateRectangleHandler implements Handler {
     Handler nextHandler;

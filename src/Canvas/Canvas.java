@@ -1,13 +1,8 @@
 package Canvas;
 
-import Commands.Command;
-import Commands.CreateCircleCommand;
-import Commands.CreateRectangleCommand;
+
 import Handlers.*;
 import Memento.CareTaker;
-import Memento.Memento;
-import Shapes.Circle;
-import Shapes.Rectangle;
 import Shapes.Shape;
 
 import java.io.File;
@@ -28,7 +23,6 @@ public class Canvas {
         this.shapes = new ArrayList<>();
         this.shapeSelected = -1;
         this.careTaker = new CareTaker(this);
-//        createMemento();
     }
 
     public void startDrawing(File inputFile) {

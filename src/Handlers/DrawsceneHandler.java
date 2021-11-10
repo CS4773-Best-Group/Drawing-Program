@@ -18,7 +18,6 @@ public class DrawsceneHandler implements Handler {
     @Override
     public void handleRequest(String[] command) {
         if (command[0].equals("DRAWSCENE")) {
-            // TODO: EXECUTE DRAWSCENE COMMAND USING LIST OF SHAPES
             Command drawsceneCommand = new DrawsceneCommand(canvas);
             drawsceneCommand.execute();
             CareTaker.saveMemento(new Memento(drawsceneCommand));

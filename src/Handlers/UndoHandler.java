@@ -1,7 +1,6 @@
 package Handlers;
 
 import Canvas.Canvas;
-import Commands.UndoCommand;
 import Memento.CareTaker;
 
 public class UndoHandler implements Handler {
@@ -16,7 +15,6 @@ public class UndoHandler implements Handler {
     @Override
     public void handleRequest(String[] command) {
         if (command[0].equals("UNDO")) {
-//            new UndoCommand(canvas).execute();
             CareTaker.loadMemento().getCommand().undo();
         } else {
             nextHandler.handleRequest(command);

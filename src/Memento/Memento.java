@@ -18,11 +18,4 @@ public class Memento {
         return command;
     }
 
-    //    public List<Shape> getShapes() {
-//        return shapes;
-//    }
-
-//    public int getShapeSelected() {
-//        return shapeSelected;
-//    }
 }
