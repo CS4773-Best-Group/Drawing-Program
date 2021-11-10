@@ -7,6 +7,7 @@ import java.util.List;
 
 public class DeleteCommand implements Command {
     Canvas canvas;
+    private Shape selectedShape;
 
     public DeleteCommand(Canvas canvas) {
         this.canvas = canvas;
@@ -17,7 +18,7 @@ public class DeleteCommand implements Command {
         int selected = canvas.getShapeSelected();
         List<Shape> shapes = canvas.getShapes();
         if (selected > 0){
-            Shape selectedShape = shapes.get(selected - 1);
+            selectedShape = shapes.get(selected - 1);
             shapes.remove(selectedShape);
         } else {
             System.out.println("no shape selected.");
@@ -26,6 +27,6 @@ public class DeleteCommand implements Command {
 
     @Override
     public void undo() {
-
+        canvas.addShapeToCanvas(selectedShape);
     }
 }

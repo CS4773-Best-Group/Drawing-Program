@@ -1,7 +1,10 @@
 package Handlers;
 
 import Canvas.Canvas;
+import Commands.Command;
 import Commands.DeleteCommand;
+import Memento.CareTaker;
+import Memento.Memento;
 
 public class DeleteHandler implements Handler {
     Handler nextHandler;
@@ -15,7 +18,9 @@ public class DeleteHandler implements Handler {
     @Override
     public void handleRequest(String[] command) {
         if (command[0].equals("DELETE")) {
-            new DeleteCommand(canvas).execute();
+            Command deleteCommand = new DeleteCommand(canvas);
+            deleteCommand.execute();
+            CareTaker.saveMemento(new Memento(deleteCommand));
         } else {
             nextHandler.handleRequest(command);
         }

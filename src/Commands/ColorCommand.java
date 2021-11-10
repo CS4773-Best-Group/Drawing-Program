@@ -9,10 +9,12 @@ public class ColorCommand implements Command {
     Canvas canvas;
     String color;
     String prevColor;
+    Shape selectedShape;
 
     public ColorCommand(Canvas canvas, String color) {
         this.canvas = canvas;
         this.color = color;
+        this.selectedShape = null;
     }
 
     @Override
@@ -20,7 +22,7 @@ public class ColorCommand implements Command {
         int selected = canvas.getShapeSelected();
         List<Shape> shapes = canvas.getShapes();
         if (selected > 0){
-            Shape selectedShape = shapes.get(selected - 1);
+            selectedShape = shapes.get(selected - 1);
             prevColor = selectedShape.getColor();
             selectedShape.color(color);
         } else {
@@ -30,10 +32,7 @@ public class ColorCommand implements Command {
 
     @Override
     public void undo() {
-        int selected = canvas.getShapeSelected();
-        List<Shape> shapes = canvas.getShapes();
-        if (selected > 0){
-            Shape selectedShape = shapes.get(selected - 1);
+        if (selectedShape != null){
             selectedShape.color(prevColor);
         } else {
             System.out.println("no shape selected.");

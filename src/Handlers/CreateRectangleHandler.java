@@ -3,6 +3,8 @@ package Handlers;
 import Canvas.Canvas;
 import Commands.Command;
 import Commands.CreateRectangleCommand;
+import Memento.CareTaker;
+import Memento.Memento;
 import Shapes.Shape;
 
 public class CreateRectangleHandler implements Handler {
@@ -22,6 +24,7 @@ public class CreateRectangleHandler implements Handler {
             Command createRectangleCommand = new CreateRectangleCommand(
                 canvas, width, height);
             createRectangleCommand.execute();
+            CareTaker.saveMemento(new Memento(createRectangleCommand));
         } else {
             nextHandler.handleRequest(command);
         }

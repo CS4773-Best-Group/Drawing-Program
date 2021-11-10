@@ -25,8 +25,8 @@ public class CareTaker {
         // TODO: remove and return the most previous memento from the list
         // remove 0 element
         int index = mementoList.size() - 1;
+        Memento memento = mementoList.get(index);
         mementoList.remove(index);
-        Memento memento = mementoList.get(mementoList.size() - 1);
         //System.out.println(memento.toString());
         return memento;
     }

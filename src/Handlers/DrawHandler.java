@@ -1,7 +1,10 @@
 package Handlers;
 
 import Canvas.Canvas;
+import Commands.Command;
 import Commands.DrawCommand;
+import Memento.CareTaker;
+import Memento.Memento;
 
 public class DrawHandler implements Handler {
     Handler nextHandler;
@@ -15,7 +18,9 @@ public class DrawHandler implements Handler {
     @Override
     public void handleRequest(String[] command) {
         if (command[0].equals("DRAW")) {
-            new DrawCommand(canvas).execute();
+            Command drawCommand = new DrawCommand(canvas);
+            drawCommand.execute();
+            CareTaker.saveMemento(new Memento(drawCommand));
         } else {
             nextHandler.handleRequest(command);
         }

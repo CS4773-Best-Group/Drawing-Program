@@ -48,17 +48,6 @@ public class Canvas {
         firstHandler.handleRequest(command);
     }
 
-//    public void createMemento() {
-//        // TODO: create a new memento and use careTaker to save it to list of mementos
-//        Memento memento = new Memento(shapes, shapeSelected);
-//        careTaker.saveMemento(memento);
-//    }
-//
-//    public void restoreMemento() {
-//        // TODO: use caretaker to load memento and restore shapes and selected to match the memento
-//        careTaker.loadMemento();
-//    }
-
     private Handler setUpHandlers() {
         FinalHandler finalHandler = new FinalHandler(this);
         UndoHandler undoHandler = new UndoHandler(finalHandler, this);
@@ -75,6 +64,10 @@ public class Canvas {
 
     public void addShapeToCanvas(Shape shape) {
         shapes.add(shape);
+    }
+
+    public void removeShapeFromCanvas() {
+        shapes.remove(shapes.size()-1);
     }
 
     public List<Shape> getShapes() {

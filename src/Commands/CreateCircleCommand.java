@@ -22,7 +22,6 @@ public class CreateCircleCommand implements Command {
 
     @Override
     public void undo() {
-        Circle circle = new Circle(prevRadius);
-        canvas.addShapeToCanvas(circle);
+        canvas.removeShapeFromCanvas();
     }
 }

@@ -24,7 +24,6 @@ public class CreateRectangleCommand implements Command {
 
     @Override
     public void undo() {
-        Rectangle rectangle = new Rectangle(prevWidth, prevHeight);
-        canvas.addShapeToCanvas(rectangle);
+        canvas.removeShapeFromCanvas();
     }
 }

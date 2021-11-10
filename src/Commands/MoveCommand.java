@@ -11,12 +11,13 @@ public class MoveCommand implements Command {
     int y;
     int prevX;
     int prevY;
-
+    Shape selectedShape;
 
     public MoveCommand(Canvas canvas, int x, int y) {
         this.canvas = canvas;
         this.x = x;
         this.y = y;
+        this.selectedShape = null;
     }
 
     @Override
@@ -24,7 +25,7 @@ public class MoveCommand implements Command {
         int selected = canvas.getShapeSelected();
         List<Shape> shapes = canvas.getShapes();
         if (selected > 0){
-            Shape selectedShape = shapes.get(selected - 1);
+            selectedShape = shapes.get(selected - 1);
             prevX = selectedShape.getX();
             prevY = selectedShape.getY();
             selectedShape.move(x, y);
@@ -35,10 +36,7 @@ public class MoveCommand implements Command {
 
     @Override
     public void undo() {
-        int selected = canvas.getShapeSelected();
-        List<Shape> shapes = canvas.getShapes();
-        if (selected > 0){
-            Shape selectedShape = shapes.get(selected - 1);
+        if (selectedShape != null){
             selectedShape.move(prevX, prevY);
         } else {
             System.out.println("no shape selected.");

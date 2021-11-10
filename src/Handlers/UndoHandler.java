@@ -15,9 +15,8 @@ public class UndoHandler implements Handler {
 
     @Override
     public void handleRequest(String[] command) {
-        //System.out.println(command[0]);
         if (command[0].equals("UNDO")) {
-            new UndoCommand(canvas).execute();
+//            new UndoCommand(canvas).execute();
             CareTaker.loadMemento().getCommand().undo();
         } else {
             nextHandler.handleRequest(command);
